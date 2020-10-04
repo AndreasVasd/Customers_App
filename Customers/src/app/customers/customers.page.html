@@ -33,7 +33,24 @@
       </ion-col> 
     </ion-row>
 
-    <tr *ngFor="let customer of customersArray"><td>{{customer.phone}}</td></tr>
+    <!--<tr *ngFor="let customer of customersArray"><td>{{customer.phone}}</td></tr>-->
+
+    <ion-row>
+      <ion-col  size-sm="5" offset-sm="4">
+        <div class="ion-text-center">
+          <ion-list>
+          <!--we use slice to get the non loaded places-->
+          <ion-item *ngFor="let customer of customersArray"> <!--it is the little arrow in the right of each item-->
+            <ion-label>
+              <h2>{{customer.contactName}}  {{customer.phone}}</h2>
+              <p>{{customer.address}}, {{customer.postalCode}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        </div>
+      </ion-col>
+
+    </ion-row>
 
    
 
