@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-
+import { CustomersService } from '../customers.service';
 
 
 @Component({
@@ -10,13 +10,15 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 })
 export class CustomersPage implements OnInit {
 
+@Output() onCustomerSelect = new EventEmitter();
 
-  constructor(private http: HttpClient,) { }
+
+  constructor(private http: HttpClient,
+              private customersSer: CustomersService) { }
     
  
   Subscriber: any;
   customersArray= [];
-  
 
   //For filtering
   searchItem: string = "";
@@ -24,29 +26,23 @@ export class CustomersPage implements OnInit {
   
   ngOnInit() {
 
-   //Send the GET request
-    this.Subscriber = this.http.get('./assets/customers.json').subscribe(
-      dataRes => {
-         for (let key in dataRes['customers']) 
-          //console.log(data['customers']);
-          this.customersArray.push(dataRes['customers'][key]); //key is the index
-          //console.log(this.customersArray);
-      },
-      (err: HttpErrorResponse) => {
-        console.log(err.message);
-      }
-    );  
+    this.customersSer.getData();
+    this.filterCus = this.customersSer.customersArray; 
 
-    this.filterCus = this.customersArray;
-    return this.Subscriber;
 
   }
 
   //Filtering
   filterCustomers(searchItem) { 
-       this.filterCus = this.customersArray.filter(customer => { 
-      return customer.contactName.indexOf(searchItem) > -1; 
+      this.filterCus = this.customersSer.customersArray.filter(customer => { 
+      return customer.contactName.indexOf(searchItem) >-1; 
+      
     }); 
+    console.log(this.filterCus); // only filtered results
+  }
+
+  customerSelected(customerSel) {
+    this.customersSer.selectedCustomer = customerSel;
   }
  
 

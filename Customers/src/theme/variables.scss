@@ -4,6 +4,14 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
+
+  //General toolbar style
+  ion-toolbar {
+    --background: #ebac13;
+  }
+
+
+
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
