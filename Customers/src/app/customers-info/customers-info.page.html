@@ -16,7 +16,7 @@
   <ion-content  class="ion-padding">
     <ion-grid>
       <ion-row>
-      <ion-col  size-sm="5" offset-sm="1">
+      <ion-col  size-sm="6" offset-sm="3">
         <div class="ion-text-center">
           <ion-list>
             <!--customerEl refers to customer from customers-->
@@ -24,10 +24,10 @@
              
             <ion-label>
               <ion-text color="danger shade" >
-              <h2>{{specific_customer.contactName}} :</h2>
+              <h2 class="ion-text-center">{{specific_customer.contactName}}:</h2>
             </ion-text>
-              <p>tel: {{specific_customer.phone}}</p>
-              <p>City: {{specific_customer.city}}</p>
+              <p class="ion-text-start">Tel: {{specific_customer.phone}}</p>
+              <p class="ion-text-start">City: {{specific_customer.city}}</p>
               </ion-label>
               </ion-item>
               </ion-list>
