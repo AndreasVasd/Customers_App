@@ -13,11 +13,8 @@ export class CustomersInfoPage implements OnInit {
 
   specific_customer: any
 
-  
-
-
   ngOnInit() {
-    this. specific_customer = this.customersSer.selectedCustomer 
+    this. specific_customer = this.customersSer.selectedCustomer; 
   }
 
   

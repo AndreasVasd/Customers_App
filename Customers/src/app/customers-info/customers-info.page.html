@@ -23,7 +23,11 @@
             <ion-item> 
              
             <ion-label>
-              <h2>{{specific_customer.contactName}}</h2>
+              <ion-text color="danger shade" >
+              <h2>{{specific_customer.contactName}} :</h2>
+            </ion-text>
+              <p>tel: {{specific_customer.phone}}</p>
+              <p>City: {{specific_customer.city}}</p>
               </ion-label>
               </ion-item>
               </ion-list>

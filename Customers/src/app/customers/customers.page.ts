@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { CustomersService } from '../customers.service';
 
 
@@ -10,14 +9,11 @@ import { CustomersService } from '../customers.service';
 })
 export class CustomersPage implements OnInit {
 
-@Output() onCustomerSelect = new EventEmitter();
 
 
-  constructor(private http: HttpClient,
-              private customersSer: CustomersService) { }
+  constructor(private customersSer: CustomersService) { }
     
  
-  Subscriber: any;
   customersArray= [];
 
   //For filtering
@@ -26,8 +22,8 @@ export class CustomersPage implements OnInit {
   
   ngOnInit() {
 
-    this.customersSer.getData();
-    this.filterCus = this.customersSer.customersArray; 
+    this.customersSer.getData(); //get json data from the service 
+    this.filterCus = this.customersSer.customersArray;  // for displaying all the customers from the begining
 
 
   }

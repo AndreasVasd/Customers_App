@@ -9,7 +9,7 @@ export class CustomersService {
   Subscriber: any;
   customersArray= [];
 
- selectedCustomer: any
+ selectedCustomer: any //for passing it to all components
 
   constructor(private http: HttpClient) { }
 
